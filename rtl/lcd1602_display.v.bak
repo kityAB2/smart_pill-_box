@@ -1,0 +1,12 @@
+module lcd1602_display(
+	input				clk			,//时钟
+	input				rst_n		,//复位
+	input   [3:0]       mode_out    ,//模式
+    input	[23:0]      time_din,       // 显示的时间
+	input   [27:0]      pill_box_din,   //系统药盒设置
+	output	[255:0]		dis_data    ,//显示数据低位表示
+	); 
+	
+	
+	
+end

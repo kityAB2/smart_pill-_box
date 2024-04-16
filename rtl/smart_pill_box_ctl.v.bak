@@ -1,0 +1,108 @@
+module smart_pill_box_ctl(
+    input                   clk    ,        // 时钟信号
+    input                   rst_n  ,        // 复位信号  
+	input        [4:0]      keyvalue;       //按键编码输出
+	input                   keyfinish;      //按键锁存标志     
+    output	reg  [63:0] 	r_dis  ,        // 红显示缓存
+    output	reg  [63:0]     g_dis  ,        // 绿显示缓存 
+
+    );
+//矩阵键盘转独立按键
+reg  [15:0] key,key_n1,key_n2;
+wire [15:0] key_fin;
+//系统时间设计相关
+reg [7:0] hour;//小时
+reg [7:0] min;//分
+reg [7:0] sec;//秒 
+reg [3:0] hour_bcd0;
+reg [3:0] hour_bcd1;
+reg [3:0] min_bcd0;
+reg [3:0] min_bcd1;
+reg [3:0] sec_bcd0;
+reg [3:0] sec_bcd1;
+reg [3:0] mode;、//指示当前模式
+parameter SET_TIME_1MS = 16'd50_000;	
+
+///////////////矩阵键盘转独立按键////////////////////////////////
+always @ (posedge clk or negedge rst_n)  
+begin
+	if(!rst_n) begin						
+		key <= 16'b0000000000000000;
+	end
+	else begin
+		case(keyvalue)
+			5'b00000:key=16'b0000000000000001;	 
+			5'b00001:key=16'b0000000000000010;		
+			5'b00010:key=16'b0000000000000100;	
+			5'b00011:key=16'b0000000000001000;		
+			5'b00100:key=16'b0000000000010000;	
+			5'b00101:key=16'b0000000000100000;		
+			5'b00110:key=16'b0000000001000000;		
+			5'b00111:key=16'b0000000010000000;	
+							 
+			5'b01000:key=16'b0000000100000000;		
+			5'b01001:key=16'b0000001000000000;		
+			5'b01010:key=16'b0000010000000000;		
+			5'b01011:key=16'b0000100000000000;		
+			5'b01100:key=16'b0001000000000000;		
+			5'b01101:key=16'b0010000000000000;		
+			5'b01110:key=16'b0100000000000000;	
+			5'b01111:key=16'b1000000000000000;	
+			5'b10000:key=16'b0000000000000000;
+			default:key=16'b0000000000000000;	 
+		endcase         	 		 
+	end	
+end
+always @ (posedge clk or negedge rst_n)  
+begin
+	if(!rst_n) begin						
+		key_n1<=16'b0000000000000000;
+		key_n2<=16'b0000000000000000;
+	end
+	else begin
+		key_n1<=key;
+		key_n2<=key_n1;
+	end	
+end
+assign key_fin<=key_n1 & (~ key_n2);  
+/////////////////////////////////////////////////////////////
+////////////////////时钟代码////////////////////////////// 
+assign hour_bcd1 <= hour/4'd10%4'd10;
+assign hour_bcd0 <= hour%4'd10;
+assign min_bcd1  <= min/4'd10%4'd10;
+assign min_bcd0  <= min%4'd10;  
+assign sec_bcd1  <= sec/4'd10%4'd10;
+assign sec_bcd0  <= sec%4'd10;    
+always @ (posedge clk or negedge rst_n)  
+begin
+	if(!rst_n) begin						
+		hour<=8'd0;
+		min<=8'd0;
+		sec<=8'd0;
+	end
+	else begin
+		case(keyvalue)
+			5'b00000:key=16'b0000000000000001;	 
+			5'b00001:key=16'b0000000000000010;		
+			5'b00010:key=16'b0000000000000100;	
+			5'b00011:key=16'b0000000000001000;		
+			5'b00100:key=16'b0000000000010000;	
+			5'b00101:key=16'b0000000000100000;		
+			5'b00110:key=16'b0000000001000000;		
+			5'b00111:key=16'b0000000010000000;	
+							 
+			5'b01000:key=16'b0000000100000000;		
+			5'b01001:key=16'b0000001000000000;		
+			5'b01010:key=16'b0000010000000000;		
+			5'b01011:key=16'b0000100000000000;		
+			5'b01100:key=16'b0001000000000000;		
+			5'b01101:key=16'b0010000000000000;		
+			5'b01110:key=16'b0100000000000000;	
+			5'b01111:key=16'b1000000000000000;	
+			5'b10000:key=16'b0000000000000000;
+			default:key=16'b0000000000000000;	 
+		endcase         	 		 
+	end	
+end
+///////////////////////////////////////////////
+endmodule               

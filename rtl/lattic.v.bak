@@ -1,0 +1,73 @@
+module lattic(
+    input                   clk    ,        // 时钟信号
+    input                   rst_n  ,        // 复位信号  
+    input        [63:0] 	r_dis  ,        // 红显示缓存
+    input        [63:0]     g_dis  ,        // 绿显示缓存 
+    output	     [ 7:0]     row    ,        // 行选信号
+    output  reg	 [ 7:0]     r_col  ,       
+    output  reg	 [ 7:0]     g_col
+    );
+parameter SET_TIME_1MS = 16'd50_000;	
+reg			[15:0]	time_cnt;			//用来控制数码管闪烁频率的定时计数器
+reg			[2:0]	cnt;			//用来控制数码管闪烁频率的定时计数器
+    
+//时序电路,用来给time_cnt寄存器赋值
+always @ (posedge clk or negedge rst_n)  
+begin
+	if(!rst_n) begin						//判断复位
+		time_cnt <= 16'd0;					//初始化time_cnt值
+		cnt <= 3'd0;
+	end
+	else begin
+		if(time_cnt==SET_TIME_1MS) begin
+			time_cnt<=0;
+			if(cnt==3'd7) cnt<=0;
+			else cnt<=cnt+1;
+		else
+			time_cnt<=time_cnt+1;
+		end
+	end	
+end
+always @ (*)
+begin
+	case (cnt)  
+		3'b000 : r_col = r_dis( 7 downto  0);  
+		3'b001 : r_col = r_dis(15 downto  8);  
+		3'b010 : r_col = r_dis(23 downto 16);  
+		3'b011 : r_col = r_dis(31 downto 24);  
+		3'b100 : r_col = r_dis(39 downto 32);  
+		3'b101 : r_col = r_dis(47 downto 40);  
+		3'b110 : r_col = r_dis(55 downto 48);  
+		3'b111 : r_col = r_dis(63 downto 56);  		
+		default:  	
+	endcase 	
+end
+always @ (*)
+begin
+	case (cnt)  
+		3'b000 : g_col = g_dis( 7 downto  0);  
+		3'b001 : g_col = g_dis(15 downto  8);  
+		3'b010 : g_col = g_dis(23 downto 16);  
+		3'b011 : g_col = g_dis(31 downto 24);  
+		3'b100 : g_col = g_dis(39 downto 32);  
+		3'b101 : g_col = g_dis(47 downto 40);  
+		3'b110 : g_col = g_dis(55 downto 48);  
+		3'b111 : g_col = g_dis(63 downto 56);  		
+		default:  	
+	endcase 	
+end
+always @ (*)
+begin
+	case (cnt)  
+		3'b000 : row = 8'b11111110; 
+		3'b001 : row = 8'b11111101; 
+		3'b010 : row = 8'b11111011; 
+		3'b011 : row = 8'b11110111; 
+		3'b100 : row = 8'b11101111; 
+		3'b101 : row = 8'b11011111; 
+		3'b110 : row = 8'b10111111; 
+		3'b111 : row = 8'b10111111; 		
+		default:  	   
+	endcase 	       
+end                    
+endmodule               

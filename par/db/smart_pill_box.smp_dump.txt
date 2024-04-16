@@ -1,0 +1,22 @@
+
+State Machine - |smart_pill_box|lcd1602_driver:lcd1602_driver_inst|state_s
+Name state_s.S5 state_s.S4 state_s.S3 state_s.S2 state_s.S1 state_s.S0 
+state_s.S0 0 0 0 0 0 0 
+state_s.S1 0 0 0 0 1 1 
+state_s.S2 0 0 0 1 0 1 
+state_s.S3 0 0 1 0 0 1 
+state_s.S4 0 1 0 0 0 1 
+state_s.S5 1 0 0 0 0 1 
+
+State Machine - |smart_pill_box|lcd1602_driver:lcd1602_driver_inst|state_f
+Name state_f.INIT state_f.REFRESH state_f.CHECK 
+state_f.INIT 0 0 0 
+state_f.CHECK 1 0 1 
+state_f.REFRESH 1 1 0 
+
+State Machine - |smart_pill_box|smart_pill_box_ctl:smart_pill_box_ctl_inst|mode
+Name mode.PILL_BOX3 mode.PILL_BOX2 mode.PILL_BOX1 mode.TIME 
+mode.TIME 0 0 0 0 
+mode.PILL_BOX1 0 0 1 1 
+mode.PILL_BOX2 0 1 0 1 
+mode.PILL_BOX3 1 0 0 1 

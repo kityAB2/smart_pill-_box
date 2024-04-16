@@ -1,0 +1,165 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim
+T_opt
+!s110 1683795879
+Vz7cfWK_X9HdkGH]MQSkQ83
+04 22 4 work smart_pill_box_vlg_tst fast 0
+=1-84a93e3cda3d-645cafa6-356-6ddc
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
+n@_opt
+OL;O;10.4;61
+vlattic
+Z1 !s110 1683795877
+!i10b 1
+!s100 <eN?6f>>SMKGU09U2C3473
+IhFj]XHJKHNHXgCDh>UlMk0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1683787407
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/lattic.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/lattic.v
+L0 6
+Z4 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1683795877.637000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/lattic.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/lattic.v|
+!i113 0
+Z5 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 !s92 -vlog01compat -work work {+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl} -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vlcd1602_display
+R1
+!i10b 1
+!s100 gLh3Ba7:C_Y;PE4ZD6eB<3
+IfN5DOaX86@54Y4X<66o233
+R2
+R0
+R3
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_display.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_display.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1683795877.969000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_display.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_display.v|
+!i113 0
+R5
+R6
+vlcd1602_driver
+Z7 !s110 1683795876
+!i10b 1
+!s100 iEP[CReoZRh<TDEclcW?=2
+IHMTLbN9ICmoCc?Q7R0mYG3
+R2
+R0
+Z8 w1683787405
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_driver.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_driver.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1683795876.369000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_driver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/lcd1602_driver.v|
+!i113 0
+R5
+R6
+vscankeyboard_debounce
+R1
+!i10b 1
+!s100 UC@8H`Vh@le946PgG2e6h3
+I9UG<=eiF90>6GS;1ZR>[^3
+R2
+R0
+R8
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/scankeyboard_debounce.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/scankeyboard_debounce.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1683795877.465000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/scankeyboard_debounce.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/scankeyboard_debounce.v|
+!i113 0
+R5
+R6
+vsmart_pill_box
+R1
+!i10b 1
+!s100 _gG>EfGzOPO<cAGQbnLRM0
+ICRVbl;Q:Z1<AfU0>X6k`42
+R2
+R0
+w1683787404
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1683795877.803000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box.v|
+!i113 0
+R5
+R6
+vsmart_pill_box_ctl
+R7
+!i10b 1
+!s100 [CAUCYA0jbg0e1W]oQAPU3
+IC@ZnU7:oAQNnVC=bL0EA10
+R2
+R0
+w1683787402
+8C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box_ctl.v
+FC:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box_ctl.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1683795876.606000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box_ctl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/rtl|C:/Users/Administrator/Desktop/smart_pill _box/rtl/smart_pill_box_ctl.v|
+!i113 0
+R5
+R6
+vsmart_pill_box_vlg_tst
+!s110 1683795878
+!i10b 1
+!s100 >d>dIk_hIj0gIY_3zzE`i1
+IZUnMXGBY<46l1[GC2dhnf1
+R2
+R0
+w1683795838
+8C:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim/smart_pill_box.vt
+FC:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim/smart_pill_box.vt
+L0 28
+R4
+r1
+!s85 0
+31
+!s108 1683795878.126000
+!s107 C:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim/smart_pill_box.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim|C:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim/smart_pill_box.vt|
+!i113 0
+R5
+!s92 -vlog01compat -work work {+incdir+C:/Users/Administrator/Desktop/smart_pill _box/par/simulation/modelsim} -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
